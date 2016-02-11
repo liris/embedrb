@@ -29,6 +29,10 @@ print(embed.process)
   - LINK
   - OPENGRAPH
   - MAP
+  - image
+    - BASICIMAGE
+    - FLICKR
+    - INSTAGRAM
   - video
     - YOUTUBE
       - embed only(no detail description)
@@ -52,10 +56,7 @@ print(embed.process)
   - SOUNDCLOUD
   - SPOTIFY
   - BASICAUDIO
-  - FLICKR
-  - INSTAGRAM
   - SLIDESHARE
-  - BASICIMAGE
 
 - Not Supported
   - MARKDOWN
