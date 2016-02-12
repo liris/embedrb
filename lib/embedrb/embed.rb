@@ -10,6 +10,19 @@ require_relative 'video/embed_ustream'
 require_relative 'video/embed_youtube'
 require_relative 'utils'
 
+PROCESSORS = {
+  :link => EmbedRb::Url,
+  :gmap => EmbedRb::Gmap,
+  :video => EmbedRb::BasicVideo,
+  :youtube => EmbedRb::YouTube,
+  :ted => EmbedRb::Ted,
+  :ustream => EmbedRb::Ustream,
+  :image => EmbedRb::BasicImage,
+  :flickr => EmbedRb::Flickr,
+  :instagram => EmbedRb::Instagram,
+  :openGraphEndpoint => EmbedRb::OpenGraph,
+}
+
 DEFAULT_OPTIONS = {
   :link => true,
   :linkOptions => {
@@ -37,7 +50,7 @@ DEFAULT_OPTIONS = {
   },
 
   :ted => true,
-  :ustream => true,
+  :ustream => false,
 
   :image => true,
   :flickr => true,
@@ -58,45 +71,11 @@ module EmbedRb
       embeds = []
       output = ''
 
-      if @options[:link]
-        output = EmbedRb::Url.new(input, output, @options, embeds).process()
-      end
-
-      if @options[:openGraphEndpoint]
-        output = EmbedRb::OpenGraph.new(input, output, @options, embeds).process()
-      end
-
-      if @options[:gmap]
-        output = EmbedRb::Gmap.new(input, output, @options, embeds).process()
-      end
-
-      if @options[:video]
-        output = EmbedRb::BasicVideo.new(input, output, @options, embeds).process()
-      end
-
-      if @options[:youtube]
-        output = EmbedRb::YouTube.new(input, output, @options, embeds).process()
-      end
-
-      if @options[:ted]
-        output = EmbedRb::Ted.new(input, output, @options, embeds).process()
-      end
-
-      if @options[:ustream]
-        output = EmbedRb::Ustream.new(input, output, @options, embeds).process()
-      end
-
-      if @options[:image]
-        output = EmbedRb::BasicImage.new(input, output, @options, embeds).process()
-      end
-
-      if @options[:flickr]
-        output = EmbedRb::Flickr.new(input, output, @options, embeds).process()
-      end
-
-      if @options[:instagram]
-        output = EmbedRb::Instagram.new(input, output, @options, embeds).process()
-      end
+      PROCESSORS.each {|key, klass|
+        if @options[key]
+          output = klass.new(input, output, @options, embeds).process()
+        end
+      }
 
       EmbedRb.create_text(output, embeds)
     end

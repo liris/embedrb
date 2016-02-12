@@ -34,9 +34,12 @@ print(embed.process)
     - FLICKR
     - INSTAGRAM
   - video
-  - BASICVIDEO
-  - YOUTUBE
+    - BASICVIDEO
+    - TED
+    - YOUTUBE
       - embed only(no detail description)
+    - USTREAM
+      - not working well
 - Will Supported
   - SMILEY
   - HIGHLIGHTCODE
@@ -46,9 +49,7 @@ print(embed.process)
   - CODEPEN
   - JSFIDDLE
   - GIST
-  - TED
   - DAILYMOTION
-  - USTREAM
   - LIVELEAK
   - VINE
   - VIMEO
