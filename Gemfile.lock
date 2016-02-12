@@ -1,8 +1,3 @@
-PATH
-  remote: .
-  specs:
-    embedrb (0.1.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -78,7 +73,6 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.0)
-  embedrb!
   jeweler (~> 2.0.1)
   rdoc (~> 3.12)
   shoulda

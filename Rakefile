@@ -11,6 +11,8 @@ rescue Bundler::BundlerError => e
 end
 require 'rake'
 
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'embedrb/version'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
