@@ -23,7 +23,7 @@ if $0 == __FILE__
 EOF
 
   opts = {
-  #  :openGraphEndpoint => 'http://opengraph.io/api/1.0/site/',
+    :openGraphEndpoint => 'http://opengraph.io/api/1.0/site/',
     :gmap => true,
     :gmapOptions => {
       :googleAuthKey => ENV['GOOGLE_AUTH_KEY'],

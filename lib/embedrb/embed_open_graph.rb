@@ -1,30 +1,35 @@
 require 'erb'
 require 'json'
+require_relative 'base'
 require_relative 'utils'
 
 module  EmbedRb
   class OpenGraph
+    include EmbedRb::Base
+
     def initialize(input, output, options, embeds)
       @input = input
       @output = output
       @options = options
       @embeds = embeds
       @url_regex = EmbedRb.url_regex
-
-      patturn = ['.mp4|.mp3|.gif|.pdf|.doc|.ppt|.docx|.jpg|.jpeg|.ogg']
+      pattern = ['flickr.com|youtube.com|youtu.be|.mp4|.ogv|.webm|.mp3|.wav|.gif|.pdf|.doc|.ppt|.docx|.jpg|.jpeg|.tiff|.png|.svg|.webp|.ogg']
       openGraphOptions = options[:openGraphOptions]
       if openGraphOptions[:excluded_regex]
-        patturn[1] = openGraphOptions[:excluded_regex]
+        pattern[1] = openGraphOptions[:excluded_regex]
       end
-      @excluded_regex = Regexp.new(patturn.join("|"), Regexp::IGNORECASE)
+      @excluded_regex = Regexp.new(pattern.join("|"), Regexp::IGNORECASE)
     end
 
     def process()
       @input.scan(@url_regex) {|match|
         url = match[2]
-        if !exclude? url
+        short_url = shorten(url)
+        if !exclude?(url) && !@options[:served].include?(short_url)
+          p short_url
           data = fetch(url)
           if data
+            @options[:served] << short_url
             @embeds << {
               :key => url,
               :text => render(data)

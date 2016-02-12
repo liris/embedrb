@@ -1,7 +1,6 @@
 
 module EmbedRb
   module Base
-
     def process()
       embed
       @output
@@ -26,6 +25,10 @@ module EmbedRb
     def url_to_text(matched)
       url = matched[0]
       return render url
+    end
+
+    def shorten(url)
+      url.gsub(/http(s?):\/\/(www\.|m\.|)/, '')
     end
   end
 end
