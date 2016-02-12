@@ -11,14 +11,16 @@ rescue Bundler::BundlerError => e
 end
 require 'rake'
 
+require 'embedrb/version'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
   gem.name = "embedrb"
+  gem.version = EmbedRb::VERSION
   gem.homepage = "http://github.com/liris/embedrb"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{a ruby port of Embed.js}
+  gem.description = %Q{a ruby port of Embed.js}
   gem.email = "liris.pp@gmail.com"
   gem.authors = ["liris"]
   # dependencies defined in Gemfile
@@ -42,7 +44,8 @@ task :default => :test
 
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
+  # version = File.exist?('VERSION') ? File.read('VERSION') : ""
+  version = EmbedRb::VERSION
 
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title = "embedrb #{version}"

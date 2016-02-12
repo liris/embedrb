@@ -51,7 +51,7 @@ module  EmbedRb
           return data
         end
       rescue
-        # TODO: error handling
+        # error handling
       end
     end
 
