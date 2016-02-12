@@ -34,7 +34,8 @@ print(embed.process)
     - FLICKR
     - INSTAGRAM
   - video
-    - YOUTUBE
+  - BASICVIDEO
+  - YOUTUBE
       - embed only(no detail description)
 - Will Supported
   - SMILEY
@@ -49,7 +50,6 @@ print(embed.process)
   - DAILYMOTION
   - USTREAM
   - LIVELEAK
-  - BASICVIDEO
   - VINE
   - VIMEO
   - GITHUB
