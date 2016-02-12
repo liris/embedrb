@@ -8,6 +8,7 @@ require_relative 'video/embed_video'
 require_relative 'video/embed_ted'
 require_relative 'video/embed_ustream'
 require_relative 'video/embed_youtube'
+require_relative 'audio/embed_audio'
 require_relative 'utils'
 
 PROCESSORS = {
@@ -20,6 +21,7 @@ PROCESSORS = {
   :image => EmbedRb::BasicImage,
   :flickr => EmbedRb::Flickr,
   :instagram => EmbedRb::Instagram,
+  :audio => EmbedRb::BasicAudio,
   :openGraphEndpoint => EmbedRb::OpenGraph,
 }
 
@@ -55,6 +57,8 @@ DEFAULT_OPTIONS = {
   :image => true,
   :flickr => true,
   :instagram => true,
+
+  :audio => true,
 
 }
 

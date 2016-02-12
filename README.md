@@ -40,6 +40,8 @@ print(embed.process)
       - embed only(no detail description)
     - USTREAM
       - not working well
+  - audio
+    - BASICAUDIO
 - Will Supported
   - SMILEY
   - HIGHLIGHTCODE
@@ -56,7 +58,6 @@ print(embed.process)
   - GITHUB
   - SOUNDCLOUD
   - SPOTIFY
-  - BASICAUDIO
   - SLIDESHARE
 
 - Not Supported

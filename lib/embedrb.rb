@@ -17,6 +17,8 @@ if $0 == __FILE__
    http://www.ustream.tv/channel/%E3%81%AC%E3%81%93%E3%81%AE%E3%81%93
    http://www.ustream.tv/embed/5832768?html5ui
 
+   http://www.example.com/a.mp3
+
    ---------------------
 EOF
 
