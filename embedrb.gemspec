@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["liris"]
-  s.date = "2016-02-12"
+  s.date = "2016-02-16"
   s.description = "a ruby port of Embed.js"
   s.email = "liris.pp@gmail.com"
   s.extra_rdoc_files = [
