@@ -53,7 +53,7 @@ module  EmbedRb
       url = "https://www.google.com/maps/embed/v1/#{mode}?key=#{config[:googleAuthKey]}&#{params}"
       template = <<EOF
         <div class="ejs-embed ejs-map">
-          <iframe width="#{dims[:width]}" height="#{dims[:height]}" src="#{url}" />
+          <iframe width="#{dims[:width]}" height="#{dims[:height]}" src="#{url}" ></iframe>
         </div>
 EOF
     end

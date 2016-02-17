@@ -19,7 +19,7 @@ module EmbedRb
       return <<EOF
       <div class="ejs-embed">
         <div class="ne-image-wrapper">
-          <iframe src="#{EmbedRb.to_url(url.split('/?')[0])}/player/" width="#{dims[:width]}" height="#{dims[:height]}" />
+          <iframe src="#{EmbedRb.to_url(url.split('/?')[0])}/player/" width="#{dims[:width]}" height="#{dims[:height]}" ></iframe>
         </div>
       </div>
 EOF

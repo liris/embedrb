@@ -18,7 +18,7 @@ module EmbedRb
       dims = EmbedRb.get_dimensions(@options)
       return <<EOF
       <div class="ejs-embed ejs-ustream">
-        <iframe src="//www.#{url}" height="#{dims[:height]}" width="#{dims[:width]} />
+        <iframe src="//www.#{url}" height="#{dims[:height]}" width="#{dims[:width]} ></iframe>
       </div>
 EOF
     end

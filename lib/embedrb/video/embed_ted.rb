@@ -23,7 +23,7 @@ module EmbedRb
       dims = EmbedRb.get_dimensions(@options)
       return <<EOF
       <div class="ejs-embed ejs-ted">
-        <iframe src="http://embed.ted.com/talks/#{_id}.html" height="#{dims[:height]}" width="#{dims[:width]}" />
+        <iframe src="http://embed.ted.com/talks/#{_id}.html" height="#{dims[:height]}" width="#{dims[:width]}" ></iframe>
       </div>
 EOF
     end
