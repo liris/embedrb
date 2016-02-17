@@ -58,14 +58,14 @@ module  EmbedRb
     def render(data)
       return <<EOF
         <div class="ejs-embed ejs-ogp">
-		      <div class="ejs-ogp-thumb" style="background-image:url(#{data["hybridGraph"]['image']})" />
+		      <div class="ejs-ogp-thumb" style="background-image:url(#{data["hybridGraph"]['image']})" ></div>
 		      <div class="ejs-ogp-details">
 		        <div class="ejs-ogp-title">
               <a href="#{data['url']}" target="#{@options[:linkOptions][:target]}">
                 #{data["hybridGraph"]['title']}
               </a>
             </div>
-		        <div class="ejs-ogb-details">#{data["hybridGraph"]['description']}</div>
+		        <div class="ejs-ogb-details">#{data["hybridGraph"]["description"]}</div>
           </div>
         </div>
 EOF
