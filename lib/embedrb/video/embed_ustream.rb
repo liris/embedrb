@@ -11,6 +11,7 @@ module EmbedRb
       @embeds = embeds
       @options = options
       @regex = /(ustream.tv\/([a-z\/0-9%]*))/mi
+      @service = :ustream
     end
 
     private

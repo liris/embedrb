@@ -11,6 +11,7 @@ module EmbedRb
       @embeds = embeds
       @options = options
       @regex = /((?:https?):\/\/\S*\.(?:wav|mp3|ogg))/mi
+      @service = :audio
     end
 
     private

@@ -11,6 +11,7 @@ module EmbedRb
       @embeds = embeds
       @options = options
       @regex = /(instagram.com\/p\/[a-zA-Z0-9_\/\?\-\=]+)/mi
+      @service = :instagram
     end
 
     private

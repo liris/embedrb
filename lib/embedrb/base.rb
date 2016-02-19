@@ -9,7 +9,7 @@ module EmbedRb
     def embed()
       @input.scan(@regex) {|match|
         url = match[0]
-        if !@options[:served].include? url
+        if !@options[:served].include? url && EmbedRb.process_more?(@options, @service, @embeds)
           text = url_to_text match
           if text
             @options[:served] << url

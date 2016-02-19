@@ -7,6 +7,7 @@ if $0 == __FILE__
    http://www.google.com/
    the following is geocode
    @(東京駅)
+   @(東京駅)
    http://hoge.fuga.com/xxx/yyy.png
    https://www.flickr.com/photos/parismadrid/5573484679/in/photolist-9uvyPr-7TD5uZ-jYwbo8-qeZLRe-odzeYC-n8x6Xn-dzq2Ws-oRNMGp-68DxGi-c4DxV7-bnmwjN-nqZDVD-kF39se-rXJWT4-nTTR4S-7YLgdX-apPuvi-q1DhYc-kFWFjG-a2c9kr-aPGmhK-oqB5cQ-ziBGRr-oBkGxp-pEFgd8-jY9diK-mDTbpD-jzSaXQ-cuCWwN-pzK88U-9HvHVt-dBPTZV-nKdYRM-oEDGkL-bTygzn-o3CxjL-rhtanH-oXpW1i-s4Jdat-p8N1RJ-fhpghZ-dX2tPC-v8R2LX-x7M7j1-xFACNe-cAWLSf-A6FvqE-adcNyU-t2N6Hh-j1TaxV
 
@@ -23,6 +24,8 @@ if $0 == __FILE__
 EOF
 
   opts = {
+    :maxEmbed => 0,
+    :maxEmbedExcludes => [ :youtube ],
     :openGraphEndpoint => 'http://opengraph.io/api/1.0/site/',
     :gmap => true,
     :gmapOptions => {

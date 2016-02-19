@@ -11,6 +11,7 @@ module EmbedRb
       @embeds = embeds
       @options = options
       @regex = /(flickr.com\/[a-z]+\/[a-zA-Z0-9@_\-]+\/[\d]+)/mi
+      @service = :flickr
     end
 
     private

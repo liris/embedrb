@@ -28,6 +28,14 @@ module EmbedRb
     options[key] ? options[key] : {}
   end
 
+  def process_more?(options, key, embeds)
+    max_num = options[:maxEmbed]
+    if max_num == 0
+      return true
+    end
+    embeds.length < max_num || options[:maxEmbedExcludes].include?(key)
+  end
+
   def create_text(str, embeds)
     # TODO: sort embeds
     embeds_str = embeds.map {|embed|

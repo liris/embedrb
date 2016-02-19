@@ -25,7 +25,7 @@ module  EmbedRb
       @input.scan(@url_regex) {|match|
         url = match[2]
         short_url = shorten(url)
-        if !exclude?(url) && !@options[:served].include?(short_url)
+        if !exclude?(url) && !@options[:served].include?(short_url) && EmbedRb.process_more?(@options, :openGraphEndpoint, @embeds)
           p short_url
           data = fetch(url)
           if data

@@ -11,6 +11,7 @@ module EmbedRb
       @embeds = embeds
       @options = options
       @regex = /(ted.com\/talks\/([a-zA-Z0-9_]+))/mi
+      @service = :ted
     end
 
     private

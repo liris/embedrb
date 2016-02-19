@@ -26,6 +26,8 @@ PROCESSORS = {
 }
 
 DEFAULT_OPTIONS = {
+  :maxEmbed => 0,
+  :maxEmbedExcludes => [],
   :link => true,
   :linkOptions => {
     :target => 'self',
@@ -76,8 +78,8 @@ module EmbedRb
       output = ''
 
       PROCESSORS.each {|key, klass|
-        if @options[key]
-          output = klass.new(input, output, @options, embeds).process()
+        if @options[key] && EmbedRb.process_more?(@options, key, embeds)
+          output = klass.new(input, output, @options, embeds).process
         end
       }
 

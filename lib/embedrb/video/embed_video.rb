@@ -11,6 +11,7 @@ module EmbedRb
       @embeds = embeds
       @options = options
       @regex = /((?:https?):\/\/\S*\.(?:ogv|webm|mp4))/mi
+      @service = :video
     end
 
     private
