@@ -52,8 +52,8 @@ module  EmbedRb
     def format(mode, config, dims, params)
       url = "https://www.google.com/maps/embed/v1/#{mode}?key=#{config[:googleAuthKey]}&#{params}"
       template = <<EOF
-        <div class="ejs-embed ejs-map">
-          <iframe width="#{dims[:width]}" height="#{dims[:height]}" src="#{url}" ></iframe>
+        <div class="ejs-embed ejs-map" style="width: #{dims[:width]}px; height: #{dims[:height]}px;">
+          <iframe width="#{dims[:width]}px" height="#{dims[:height]}px" src="#{url}" ></iframe>
         </div>
 EOF
     end
