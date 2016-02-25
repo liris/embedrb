@@ -1,10 +1,9 @@
-require 'erb'
-require 'json'
+require 'opengraph_parser'
 require_relative 'base'
 require_relative 'utils'
 
 module  EmbedRb
-  class OpenGraph
+  class OpenGraph_
     include EmbedRb::Base
 
     def initialize(input, output, options, embeds)
@@ -26,7 +25,6 @@ module  EmbedRb
         url = match[2]
         short_url = shorten(url)
         if !exclude?(url) && !@options[:served].include?(short_url) && EmbedRb.process_more?(@options, :openGraphEndpoint, @embeds)
-          p short_url
           data = fetch(url)
           if data
             @options[:served] << short_url
@@ -43,29 +41,26 @@ module  EmbedRb
 
     private
     def fetch(url)
-      endpoint = @options[:openGraphEndpoint]
-      api = endpoint + ERB::Util.url_encode(url)
       begin
-        data = JSON.parse EmbedRb.get_response(api)
-        if data && !data["error"]
-          return data
-        end
-      rescue
+        OpenGraph.new(url)
+      rescue StandardError => e
         # error handling
+        p e
+        return nil
       end
     end
 
     def render(data)
       return <<EOF
         <div class="ejs-embed ejs-ogp">
-		      <div class="ejs-ogp-thumb" style="background-image:url(#{data["hybridGraph"]['image']})" ></div>
+		      <div class="ejs-ogp-thumb" style="background-image:url(#{data.images ? data.images[0] : ''})" ></div>
 		      <div class="ejs-ogp-details">
 		        <div class="ejs-ogp-title">
-              <a href="#{data['url']}" target="#{@options[:linkOptions][:target]}">
-                #{data["hybridGraph"]['title']}
+              <a href="#{data.url}" target="#{@options[:linkOptions][:target]}">
+                #{data.title}
               </a>
             </div>
-		        <div class="ejs-ogb-details">#{data["hybridGraph"]["description"]}</div>
+		        <div class="ejs-ogb-details">#{data.description}</div>
           </div>
         </div>
 EOF

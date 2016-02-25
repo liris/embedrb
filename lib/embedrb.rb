@@ -19,6 +19,7 @@ if $0 == __FILE__
    http://www.ustream.tv/embed/5832768?html5ui
 
    http://www.example.com/a.mp3
+   http://www.salesone.co.jp/
 
    ---------------------
 EOF
@@ -26,7 +27,7 @@ EOF
   opts = {
     :maxEmbed => 0,
     :maxEmbedExcludes => [ :youtube ],
-    :openGraphEndpoint => 'http://opengraph.io/api/1.0/site/',
+    :openGraph => true,
     :gmap => true,
     :gmapOptions => {
       :googleAuthKey => ENV['GOOGLE_AUTH_KEY'],

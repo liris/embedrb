@@ -22,7 +22,7 @@ PROCESSORS = {
   :flickr => EmbedRb::Flickr,
   :instagram => EmbedRb::Instagram,
   :audio => EmbedRb::BasicAudio,
-  :openGraphEndpoint => EmbedRb::OpenGraph,
+  :openGraph => EmbedRb::OpenGraph_,
 }
 
 DEFAULT_OPTIONS = {
@@ -35,7 +35,8 @@ DEFAULT_OPTIONS = {
     :rel => '',
   },
 
-  :openGraphEndpoint => nil, # http://opengraph.io/api/1.0/site/${url_encoded_site_url}
+  # :openGraphEndpoint => nil, # http://opengraph.io/api/1.0/site/${url_encoded_site_url}
+  :openGraph => true,
   :openGraphOptions => {
     :apiKey => nil,
     :excluded_regex => nil,
