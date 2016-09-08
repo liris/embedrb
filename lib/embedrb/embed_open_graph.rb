@@ -12,7 +12,7 @@ module  EmbedRb
       @options = options
       @embeds = embeds
       @url_regex = EmbedRb.url_regex
-      pattern = ['flickr.com|youtube.com|youtu.be|.mp4|.ogv|.webm|.mp3|.wav|.gif|.pdf|.doc|.ppt|.docx|.jpg|.jpeg|.tiff|.png|.svg|.webp|.ogg']
+      pattern = ['flickr\.com|youtube\.com|youtu\.be|\.mp4|\.ogv|\.webm|\.mp3|\.wav|\.gif|\.pdf|\.doc|\.ppt|\.docx|\.jpg|\.jpeg|\.tiff|\.png|\.svg|\.webp|\.ogg']
       openGraphOptions = options[:openGraphOptions]
       if openGraphOptions[:excluded_regex]
         pattern[1] = openGraphOptions[:excluded_regex]
